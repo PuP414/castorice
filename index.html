@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรแกรมทอยลูกเต๋า</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .dice {
+            font-size: 80px;
+            margin: 20px 0;
+            color: #555;
+            animation: bounce 0.5s ease-in-out;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎲 โปรแกรมทอยลูกเต๋า 🎲</h1>
+        <div id="dice-display" class="dice">?</div>
+        <button onclick="rollDice()">ทอยลูกเต๋า</button>
+        <p id="result-text" class="result"></p>
+    </div>
+
+    <script>
+        function rollDice() {
+            // สร้างตัวเลขสุ่มระหว่าง 1 ถึง 6
+            const randomNumber = Math.floor(Math.random() * 6) + 1;
+
+            // แสดงผลลูกเต๋าเป็นสัญลักษณ์ Unicode (optional)
+            // หรือจะแสดงเป็นตัวเลขก็ได้
+            let diceSymbol = '';
+            switch (randomNumber) {
+                case 1: diceSymbol = '⚀'; break; // ลูกเต๋าหน้า 1
+                case 2: diceSymbol = '⚁'; break; // ลูกเต๋าหน้า 2
+                case 3: diceSymbol = '⚂'; break; // ลูกเต๋าหน้า 3
+                case 4: diceSymbol = '⚃'; break; // ลูกเต๋าหน้า 4
+                case 5: diceSymbol = '⚄'; break; // ลูกเต๋าหน้า 5
+                case 6: diceSymbol = '⚅'; break; // ลูกเต๋าหน้า 6
+                default: diceSymbol = randomNumber; // หากไม่ใช่ตัวเลขเหล่านี้ ให้แสดงเป็นตัวเลข
+            }
+
+            // อัปเดตการแสดงผลลูกเต๋าและข้อความ
+            const diceDisplay = document.getElementById('dice-display');
+            const resultText = document.getElementById('result-text');
+
+            diceDisplay.textContent = diceSymbol;
+            resultText.textContent = `คุณทอยได้: ${randomNumber}`;
+
+            // เพิ่ม animation เมื่อทอยลูกเต๋า
+            diceDisplay.style.animation = 'none'; // รีเซ็ต animation
+            void diceDisplay.offsetWidth; // กระตุ้น reflow เพื่อให้ animation ทำงานซ้ำ
+            diceDisplay.style.animation = 'bounce 0.5s ease-in-out';
+        }
+    </script>
+</body>
+</html>
