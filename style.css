@@ -1,0 +1,84 @@
+/* style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* ทำให้ body มีความสูงอย่างน้อยเท่ากับ viewport */
+    background: linear-gradient(135deg, #a8e063, #56ab2f); /* ไล่เฉดสีพื้นหลังสวยๆ */
+    margin: 0;
+    overflow: hidden; /* ป้องกัน scrollbar หากมี animation */
+    color: #333;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* เงาที่ดูมีมิติมากขึ้น */
+    text-align: center;
+    transition: transform 0.3s ease-in-out; /* เพิ่ม transition เมื่อ hover */
+    max-width: 90%; /* จำกัดความกว้างบนหน้าจอเล็ก */
+}
+
+.container:hover {
+    transform: translateY(-5px); /* ยกขึ้นเล็กน้อยเมื่อเมาส์อยู่เหนือ */
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 2.5em; /* ทำให้ใหญ่ขึ้นเล็กน้อย */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.dice {
+    font-size: 100px; /* ทำให้ลูกเต๋าใหญ่ขึ้น */
+    margin: 30px 0;
+    color: #e74c3c; /* สีแดงสดใส */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: bounce 0.5s ease-in-out; /* ใช้ animation ที่กำหนดไว้ใน CSS */
+    display: inline-block; /* ทำให้สามารถใส่ animation ได้ */
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px); /* เด้งสูงขึ้นกว่าเดิม */
+    }
+}
+
+button {
+    background-color: #3498db; /* สีน้ำเงินสดใส */
+    color: white;
+    padding: 18px 35px;
+    border: none;
+    border-radius: 8px; /* มุมโค้งมนขึ้น */
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    outline: none; /* ลบเส้น outline เมื่อคลิก */
+}
+
+button:hover {
+    background-color: #2980b9; /* สีเข้มขึ้นเมื่อ hover */
+    transform: translateY(-2px); /* ยกขึ้นเล็กน้อยเมื่อ hover */
+}
+
+button:active {
+    transform: translateY(0); /* กลับสู่ตำแหน่งเดิมเมื่อคลิกค้าง */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* เงาเล็กลงเมื่อกด */
+}
+
+.result {
+    margin-top: 25px;
+    font-size: 28px; /* ขนาดใหญ่ขึ้น */
+    color: #555;
+    font-weight: bold;
+}
